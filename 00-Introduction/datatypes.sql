@@ -156,5 +156,54 @@
         These are the major SQL datatypes you will see across relational databases.
         Each DBMS may have extra custom types, but the fundamental categories remain consistent.
      
-    
+
+
+     Note on char and varchar :
+        varchar saaves space, so we think it is always better than char, yes but it's hald truth, varchar does saves memory,
+        but char is faster than varchar.
+        When to use what ?
+            - It depends on our use case, If the string length is always predictable and fixed, than using char is better option,
+            and when the string length is not predictable, at that time we can go with varchar
+
+        how char is faster ?
+            - when a column's data type is set to char, then it always uses the n bytes to store the string.
+                and this makes it fast, 
+                for sql engine to get the next record, it can easily get the offset of the current record and add it with n,
+                suppose, the current string start with location 100, and the string length is 32, so the current record will take memory from 100 to 131, (100 is inclusive), 
+                and the next string will start from 132.
+                so the current offset = 100, and the length = 32
+                current offset + length = 100 + 32 = 132. 
+                and we will fetch the next string.
+
+        But varchar does not have a fixed length, so it uses a prefix of 1 or 2 bytes. to stores the length 
+        like this
+        [(size-prefix)(               actual data                   )]  <---- Total used memory
+
+        so the total size becomes actual size + size prefix....
+        and CPU has to check the size prefix everytime
+
 */
+
+
+/*
+
+    Create a Student table with attributes
+        - roll_no
+        - name
+        - address
+        - per
+        - mobile_no (only indian standard)
+        - email
+
+*/
+
+-- For now, I won't add constraints...
+
+CREATE TABLE student(
+    roll_no int,
+    name varchar(32),
+    address varchar(256),
+    per float,
+    mobile_no char(10),
+    email varchar(128)
+);
