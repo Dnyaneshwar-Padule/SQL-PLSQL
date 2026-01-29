@@ -207,3 +207,18 @@ CREATE TABLE student(
     mobile_no char(10),
     email varchar(128)
 );
+
+
+-- another table
+    CREATE TABLE my_contacts
+    (
+        last_name varchar(30),
+        first_name varchar(20),
+        email varchar(50),
+        birthday DATE,
+        profession VARCHAR(50),
+        location varchar(50),
+        status varchar(20),
+        interests varchar(100),
+        seeking varchar(100)
+    );
