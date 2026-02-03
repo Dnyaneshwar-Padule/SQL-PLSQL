@@ -1,0 +1,50 @@
+Constraints are like some rules for a specific column/attribute.
+They assure record should be inserted meaningfully, they help to avoid meaningless (unlogical) data.
+
+A table is schema is good, if it's columns have right constraints applied,
+and there should be constraints for a column while creating a table.
+
+Note :- 
+    Applying a constraint for a column is optional, we can still create a table, without applying any constraint.
+
+the syntax to apply a constraint on a column is like this
+
+    -> column_name data_type CONSTRAINT
+
+    -> CREATE TABLE table_name(
+            column_1 data_type CONSTRAINT,
+            column_2 data_type CONSTRAINT,
+            column_N data_type CONSTRAINT
+    );
+
+    -> column_name data_type CONSTRAINT_1 CONSTRAINT_2
+    ....A column can have multiple constraints
+    
+    Constraints in SQL :-
+
+        1. NOT NULL :-
+            If applied for a column, they that column's value can not set to null.
+            for example, Student's name column should not contain null values, as every student has a name
+
+        2. UNIQUE :-
+            If applied for a column, it does not allow duplicate values for that column
+            for example, values like email_id and phone_number are UNIQUE for individuals.
+
+        3. CHECK (condition) :-
+            If applied for a column, it does not allow a record to be inserted if the condition does not met.
+            for example: we can write check for student percentage, as percentage is always between 0 to 100.
+            it won't allow a value out of (0-100) this range.
+
+        4. default <default_value> :-
+            If applied for a column, while inserting a record, if we does not provide any value for this column, it will automatically take the default value and insert the record with the default value
+            for example :- we can use the current_timestamp as default value for CREATED_AT column.
+
+        5. PRIMARY KEY :-
+            It used to uniquely identify a record in a table.
+            It is a combination of not null and unique.
+            A table can have only one primary key.
+            Primary keys are mainly used to join two tables....
+
+        6. FOREIGN KEY:
+            Links two tables by referencing the PRIMARY KEY of another table, ensuring referential integrity.
+        
