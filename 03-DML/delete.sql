@@ -7,6 +7,13 @@
     Before running the actual DELETE query, we should first run the same SELECT query with the same WHERE condition to check which rows will be deleted.
 
     If we run DELETE without a WHERE clause, then all rows in the table will be deleted, so double-checking is always a good habit.
+
+
+    Syntax :- 
+        DELETE FROM table_name WHERE condition;
+
+        WHERE Clause with condition is optional.... (But necessary !!)
+
 */
 
 
