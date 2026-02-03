@@ -2,12 +2,12 @@
 
 A beginner-friendly, step-by-step guide to learning SQL from scratch.
 
-``The purpose of this repository is to help beginners learn SQL in a natural, logical sequence — without confusion or random jumps between topics.
-The structure progresses from basics → constraints → clauses → DML → SELECT → relationships → joins → set operators → DDL/DCL → transactions → indexing → PL/SQL.``
+The purpose of this repository is to help beginners learn SQL in a natural, logical sequence — without confusion or random jumps between topics.
+The structure progresses from basics → constraints → clauses → DML → SELECT → relationships → joins → set operators → DDL/DCL → transactions → indexing → PL/SQL.
 
 Repository Structure
 
-00 – Introduction
+`00 – Introduction`
 The foundation of SQL. This section covers how to create tables, understand data types, and perform basic data operations.
 Includes:
 - CREATE TABLE
@@ -15,12 +15,12 @@ Includes:
 - INSERT
 - Data Types
 
-01 – Constraints
+`01 – Constraints`
 Constraints define rules for table columns and ensure data quality.
 Includes:
 NOT NULL, UNIQUE, DEFAULT, CHECK, PRIMARY KEY, FOREIGN KEY
 
-02 – Clauses
+`02 – Clauses`
 Clauses define the logical structure and flow of SQL queries.
 Includes:
 - WHERE
@@ -30,27 +30,27 @@ Includes:
 - LIMIT
 - OFFSET
 
-03 – DML
+`03 – DML`
 Data Manipulation Language operations used for modifying table data.
 Includes:
 - UPDATE
 - DELETE
 
-04 – Select Basics
+`04 – Select Basics`
 Strengthens understanding of SELECT queries. Covers filtering, sorting, and pagination.
 Includes:
 - Filtering (LIKE, BETWEEN, IN, AND/OR/NOT)
 - ORDER BY
 - LIMIT/OFFSET
 
-05 – Relationships
+`05 – Relationships`
 Before learning JOINs, it is essential to understand how tables relate to each other.
 Includes:
 - One-to-One
 - One-to-Many
 - Many-to-Many
 
-06 – Joins
+`06 – Joins`
 The most important part of SQL. Joins allow combining data from multiple tables.
 Includes:
 - INNER JOIN
@@ -60,7 +60,7 @@ Includes:
 - CROSS JOIN
 - SELF JOIN
 
-07 – Set Operators
+`07 – Set Operators`
 These operators combine the results of two SELECT queries.
 Includes:
 - UNION
@@ -68,7 +68,7 @@ Includes:
 - INTERSECT
 - EXCEPT
 
-08 – Remaining Topics (DDL + DCL)
+`08 – Remaining Topics (DDL + DCL)`
 Structural and permission-related operations.
 Includes:
 - ALTER TABLE
@@ -77,7 +77,7 @@ Includes:
 - VIEWS
 - DCL (GRANT, REVOKE)
 
-09 – Transactions
+`09 – Transactions`
 Ensures data consistency and reliability.
 Includes:
 - COMMIT
@@ -85,7 +85,7 @@ Includes:
 - SAVEPOINT
 - Isolation Levels
 
-10 – Indexing and Keys
+`10 – Indexing and Keys`
 Fundamentals of performance tuning.
 Includes:
 - What is an Index
@@ -93,7 +93,7 @@ Includes:
 - Composite Index
 - Clustered vs Non-Clustered Keys
 
-11 – PL/SQL
+`11 – PL/SQL`
 Procedural SQL for writing logic inside the database.
 Includes:
 - Variables
@@ -106,7 +106,7 @@ Includes:
 - Triggers
 - Packages
 
-Learning Flow:
+# Learning Flow:
 1. Introduction
 2. Constraints
 3. Clauses
