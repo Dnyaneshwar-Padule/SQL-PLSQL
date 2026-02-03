@@ -2,8 +2,8 @@
 
 A beginner-friendly, step-by-step guide to learning SQL from scratch.
 
-`The purpose of this repository is to help beginners learn SQL in a natural, logical sequence — without confusion or random jumps between topics.
-The structure progresses from basics → constraints → clauses → DML → SELECT → relationships → joins → set operators → DDL/DCL → transactions → indexing → PL/SQL.`
+``The purpose of this repository is to help beginners learn SQL in a natural, logical sequence — without confusion or random jumps between topics.
+The structure progresses from basics → constraints → clauses → DML → SELECT → relationships → joins → set operators → DDL/DCL → transactions → indexing → PL/SQL.``
 
 Repository Structure
 
