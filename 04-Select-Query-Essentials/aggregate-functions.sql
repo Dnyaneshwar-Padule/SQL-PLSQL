@@ -211,4 +211,3 @@ MariaDB [test]> select count(*) from student;
     /*
         Here, we can observe that, COUNT() only counts non-NULL records
     */
-
