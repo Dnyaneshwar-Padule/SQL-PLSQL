@@ -1,0 +1,116 @@
+    RELATIONSHIPS (Introduction)
+    ----------------------------
+        In RDBMS, a relationship describes how two tables are connected to each other.
+        Real-world entities are always connected:
+            A student has a college
+            A customer has orders
+            A book has authors
+            A teacher has many subjects
+
+        If the real world is connected, then our database should also store these connections.
+        This connection between tables is called a "relationship".
+
+
+    Why do we need relationships?
+    -----------------------------
+        Without relationships, every table would have repeated data.
+        Example:
+            If we store department name inside the employee table repeatedly,
+            it wastes space and makes updates painful.
+
+        Relationships allow us to:
+            - Split data into logical tables
+            - Avoid duplication
+            - Connect tables in a meaningful way
+            - Maintain accuracy of data (integrity)
+            - Make searching and joining faster and cleaner
+
+        The whole purpose of relationships is:
+            "Store data separately but keep them connected safely."
+
+
+    Basic Terms Used in Relationships
+    ---------------------------------
+
+    1) Primary Key (PK)
+        PK uniquely identifies each row in a table.
+        Every table should have exactly one PK.
+        PK values cannot repeat and cannot be NULL.
+
+    2) Foreign Key (FK)
+        FK is a column that points to the Primary Key of another table.
+        FK creates the actual relationship between two tables.
+
+        Example:
+            student.dept_id  → references department.id
+
+    3) REFERENCES
+        Used in SQL to say:
+            "This foreign key belongs to that primary key."
+
+        Example:
+            FOREIGN KEY (dept_id) REFERENCES department(id)
+
+    4) Parent Table / Referenced Table
+        The table that owns the Primary Key.
+
+    5) Child Table / Referencing Table
+        The table that contains the Foreign Key.
+
+    6) Referential Integrity
+        A rule that ensures:
+            - A child cannot refer to a parent that does not exist.
+            - You cannot delete a parent row if child rows depend on it
+            (unless CASCADE is used).
+
+        This ensures data never becomes inconsistent.
+
+
+    ER Diagrams (Entity–Relationship)
+    ---------------------------------
+        ER diagrams visually represent:
+            - Entities (tables)
+            - Attributes (columns)
+            - Relationships between entities
+
+        Common rules / notations:
+            • PK is underlined
+            • FK is shown with an arrow pointing to the parent table
+            • Relationships are shown as lines
+                --||-- (1 to 1)
+                --<  or 1:M (one to many)
+                ><-- many-to-many
+
+        ER diagrams help us plan:
+            - What tables are needed
+            - What columns they should have
+            - How tables connect
+
+
+    Why relationships matter in real applications?
+    ----------------------------------------------
+        Relationships make your database:
+            - Normalized
+            - Consistent
+            - Easy to update
+            - Easy to join
+            - Easy to scale
+
+        Example:
+            If we separate "students" and "departments" into two tables:
+                student(dept_id) → department(id)
+            we avoid repeating department name in every student row.
+
+        This saves space, avoids mistakes, and keeps everything organized.
+
+
+    Summary:
+    -----------------
+        - Real-world data is connected, so tables must also be connected.
+        - Relationships describe how tables depend on each other.
+        - Primary Keys identify rows.
+        - Foreign Keys connect rows.
+        - REFERENCES defines the link.
+        - ER diagrams visually show all connections.
+        - Without relationships, data becomes duplicated and messy.
+        - With relationships, data becomes clean, normalized, and reliable.
