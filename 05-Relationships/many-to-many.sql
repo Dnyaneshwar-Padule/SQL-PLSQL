@@ -401,3 +401,8 @@ INSERT INTO student_teacher (rno, tno, l_date) VALUES
 
 (110, 201, '2025-01-04'),
 (110, 203, '2025-01-04');
+
+
+
+
+

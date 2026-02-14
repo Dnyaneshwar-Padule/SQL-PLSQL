@@ -19,6 +19,39 @@
         One passport → one person
 
 
+    Types of One-to-One Relationships
+    ---------------------------------
+
+    1) Weak (Optional) 1-1 Relationship:
+        This happens when the child table depends on the parent,
+        but the parent does not strictly require the child.
+
+        Example:
+            student → student_profile
+
+        Not every student must have a profile.
+        So the relationship is optional from the parent''s side.
+
+        This is sometimes called a weak relationship
+        because the child table depends on the parent table for identity.
+
+
+    2) Strong (Mandatory) 1-1 Relationship:
+        This happens when both entities must exist together.
+
+        Real-life example:
+            Bride and Groom in a Marriage Registration System.
+
+        One bride → one groom
+        One groom → one bride
+
+        If a bride exists in the marriage table,
+        a groom must exist.
+        Neither side is optional.
+
+        This is a strict 1-1.
+
+
     Why do we use 1-1 relationships?
     --------------------------------
         Sometimes we split a table into two parts:
@@ -27,6 +60,7 @@
         - To improve security (e.g., sensitive data)
         - To improve organization
         - To reduce NULL values in the main table
+        - To separate sensitive data (e.g., salary, passport info)
 
         Example:
             student table → basic details
@@ -104,17 +138,49 @@
     This also creates 1-1.
 
 
-    Why not just store everything in one table?
-    --------------------------------------------
-        You can.
-        But sometimes:
+    When should we use NOT NULL?
+    -----------------------------
 
-        - Profile info is optional.
-        - Profile info is sensitive.
-        - Profile info is large.
-        - Profile info is rarely accessed.
+    NOT NULL determines whether the relationship is mandatory.
 
-        Splitting improves design.
+    Case 1: Optional 1-1
+        If rno in student_profile is NOT NULL (it usually is),
+        but the profile table row itself may or may not exist,
+        then the relationship is optional from the student side.
+
+        Meaning:
+            Student can exist without profile.
+            But profile cannot exist without student.
+
+    Case 2: Mandatory 1-1
+        Suppose in a marriage registration system:
+
+    CREATE TABLE bride (
+        bride_id INT PRIMARY KEY
+    );
+
+    CREATE TABLE groom (
+        bride_id INT PRIMARY KEY,
+        FOREIGN KEY (bride_id) REFERENCES bride(bride_id)
+    );
+
+        Here:
+            Every groom must correspond to exactly one bride.
+            Every bride must have exactly one groom.
+
+        If we make the foreign key NOT NULL,
+        it enforces that the relationship must exist.
+
+    Real-life NOT NULL Example:
+        Consider Aadhaar and Citizen.
+
+        Every Aadhaar must belong to a citizen.
+        So Aadhaar.citizen_id should be:
+            NOT NULL
+            PRIMARY KEY
+            FOREIGN KEY
+
+        This makes the relationship strict and mandatory.
 
 
     What happens if we do not use PRIMARY KEY or UNIQUE?
@@ -145,17 +211,28 @@
         Database checks:
             - rno in profile must exist in student
             - rno in profile must be unique
+            - If NOT NULL is used, relationship becomes mandatory
 
         So relationship stays strictly 1-1.
+
+
+    Important Concept:
+    ------------------
+        PRIMARY KEY ensures uniqueness.
+        FOREIGN KEY ensures existence.
+        NOT NULL ensures mandatory participation.
+
+        Together they define the strength of the relationship.
 
 
     Summary:
     -----------------
         - 1-1 means one row connects to exactly one row.
+        - Can be weak (optional) or strong (mandatory).
         - Implemented using:
             PRIMARY KEY + FOREIGN KEY
             or UNIQUE + FOREIGN KEY
+        - NOT NULL makes the relationship mandatory.
         - Prevents duplicates in child table.
-        - Useful for optional or extended information.
         - Without UNIQUE or PRIMARY KEY,
         1-1 turns into 1-M automatically.
